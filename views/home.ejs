@@ -1,0 +1,28 @@
+
+<%- include("partials/header"); -%>
+<div class="content-safe">
+  <div class="content">
+    <h1 style="font-size:40px;">Myself</h1>
+    <p> <%= startingContent %> </p>
+    <br><br>
+    <h1 style="font-size: 30px;">Daily Diary</h1>
+
+    <form method="get" action="/compose">
+      <input type="submit" value="+ NewPost">
+    </form>
+
+    <% for(var i=posts.length-1;i>=0;i--) {%>
+      <div>
+        <br>
+        <h1 style="font-size: 20px;"><%=posts[i].title%></h1>
+        <p>
+          <%= posts[i].content.substring(0,100) + " ..."%>
+          <a href="/posts/<%=posts[i]._id%>">Read More</a>
+        </p>
+      </div>
+   <% } %>
+  </div>
+</div>
+
+
+<!-- <%- include("partials/footer"); -%> -->

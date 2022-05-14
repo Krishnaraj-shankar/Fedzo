@@ -1,0 +1,33 @@
+<%- include("partials/header"); -%>
+<div class="content-safe">
+<h1>It is memories page</h1>
+<div>
+<form method="post" action="/memories" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit">
+</form>
+</div>
+<br>
+<br>
+<div class="pictures-space">
+<% for(var i=urls.length-1;i>=0;i--) {%>
+  <img src="<%= urls[i].path%>" width="400px" height="400px">
+  <form action="/memories" method="post">
+    <input type="hidden" name="memories_whattodo" value="delete">
+    <input type="hidden"  name="id_delete" value="<%= urls[i]._id%>">
+    <input type="submit">
+  </form>
+        <!-- <form method="post" action="/delete"> -->
+            
+            <!-- <input type="hidden" name="abc" value="<%=urls[i].path%>"> -->
+            <!-- <input type="submit" value="submit"> -->
+        <!-- </form> -->
+   <% } %>
+
+  </div>
+  
+
+
+  </div>
+
+<%- include("partials/footer"); -%>
